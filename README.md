@@ -7,9 +7,9 @@ This project is a mini-task focused on data cleaning and visualizing the [Titani
 
 ##Task Objectives
 
-- Handle missing values in columns such as `Age`, `Cabin`, and `Embarked`
-- Encode categorical data (`Sex`)
-- Normalize the `Age` column
+- Handle missing values in columns such as Age, Cabin, and Embarked
+- Encode categorical data (Sex)
+- Normalize the Age column
 - Detect and remove outliers using Interquartile Range (IQR)
 - Visualize distributions and outliers using boxplots
 
@@ -17,17 +17,17 @@ This project is a mini-task focused on data cleaning and visualizing the [Titani
 
 1. **Load the dataset using pandas**
 2. **Handle missing values:**
-   - Filled `Age` with mean
-   - Dropped `Cabin` due to high percentage of missing data
-   - Filled `Embarked` with mode
+   - Filled Age with mean
+   - Dropped Cabin due to high percentage of missing data
+   - Filled Embarked with mode
 3. **Encode categorical variable:**
-   - `Sex`: male → 0, female → 1
+   - Sex: male → 0, female → 1
 4. **Remove duplicate rows**
-5. **Normalize the `Age` column** (either z-score or min-max)
-6. **Outlier detection and removal using IQR** for `Age` and `Fare`
+5. **Normalize the Age column** (either z-score or min-max)
+6. **Outlier detection and removal using IQR** for Age and Fare
 7. **Visualize:**
-   - Boxplot of `Age`
-   - Boxplot of `Age` vs `Survived`
+   - Boxplot of Age
+   - Boxplot of Age vs Survived
 
 ##Libraries Used
 
