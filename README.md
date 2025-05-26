@@ -13,7 +13,7 @@ This project is a mini-task focused on data cleaning and visualizing the [Titani
 - Detect and remove outliers using Interquartile Range (IQR)
 - Visualize distributions and outliers using boxplots
 
-## 🧹 Steps Performed
+## Steps Performed
 
 1. **Load the dataset using pandas**
 2. **Handle missing values:**
@@ -40,7 +40,7 @@ This project is a mini-task focused on data cleaning and visualizing the [Titani
 - Boxplot of `Age` before and after removing outliers
 - Boxplot comparing `Age` across survival classes
 
-## 📂 How to Run
+## How to Run
 
 ```bash
 # Clone the repository
