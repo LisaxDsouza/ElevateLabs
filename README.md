@@ -1,62 +1,48 @@
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+#Task 1: Titanic Dataset Cleaning and Visualization
 
-# 1. Load the dataset
-path = r'C:\Users\lisah\Downloads\TitanicDataset.csv'
-data = pd.read_csv(path)
+This project is a mini-task focused on data cleaning and visualizing the [Titanic dataset](https://www.kaggle.com/c/titanic/data) from Kaggle. It includes handling missing values, encoding, normalization, outlier detection and visualization.\
 
-# 2. Display the first few rows
-print("First 5 rows of the dataset:")
-print(data.head())
+## Task Objectives
 
-# 3. Check for missing values
-print("\nMissing values in each column:")
-print(data.isnull().sum())
+- Handle missing values in columns such as Age, Cabin, and Embarked
+- Encode categorical data (Sex)
+- Normalize the Age column
+- Detect and remove outliers using Interquartile Range (IQR)
+- Visualize distributions and outliers using boxplots
 
-# 4. Handle missing values
-# Fill missing 'Age' with mean
-data['Age'] = data['Age'].fillna(data['Age'].mean())
+## Steps Performed
 
-# Drop 'Cabin' due to excessive missing data
-data.drop(columns='Cabin', inplace=True)
+1. **Load the dataset using pandas**
+2. **Handle missing values:**
+   - Filled Age with mean
+   - Dropped Cabin due to high percentage of missing data
+   - Filled Embarked with mode
+3. **Encode categorical variable:**
+   - Sex: male → 0, female → 1
+4. **Remove duplicate rows**
+5. **Normalize the Age column** (either z-score or min-max)
+6. **Outlier detection and removal using IQR** for Age and Fare
+7. **Visualize:**
+   - Boxplot of Age
+   - Boxplot of Age vs Survived
 
-# Fill missing 'Embarked' with mode
-data['Embarked'] = data['Embarked'].fillna(data['Embarked'].mode()[0])
+## Libraries Used
 
-# 5. Encode categorical variable
-data['Sex'] = data['Sex'].map({'male': 0, 'female': 1})
+- pandas
+- matplotlib
+- seaborn
 
-# 6. Remove duplicate rows
-data.drop_duplicates(inplace=True)
+## Sample Visualizations
 
-# 7. Remove outliers using Interquartile Range (IQR)
-def remove_outliers_iqr(data, column):
-    Q1 = data[column].quantile(0.25)
-    Q3 = data[column].quantile(0.75)
-    IQR = Q3 - Q1
-    lower_bound = Q1 - 1.5 * IQR
-    upper_bound = Q3 + 1.5 * IQR
-    return data[(data[column] >= lower_bound) & (data[column] <= upper_bound)].copy()
+- Boxplot of Age before and after removing outliers
+- Boxplot comparing Age across survival classes
 
-# Apply IQR method to remove outliers from 'Age' and 'Fare'
-data = remove_outliers_iqr(data, 'Age')
-data = remove_outliers_iqr(data, 'Fare')
+##How to Run
 
-# 8. Normalize the 'Age' column using Min-Max normalization
-data['Age'] = (data['Age'] - data['Age'].min()) / (data['Age'].max() - data['Age'].min())
+```bash
+# Clone the repository
+git clone https://github.com/your-username/titanic-cleaning-visualization.git
+cd titanic-cleaning-visualization
 
-# 9. Visualizations
-# Boxplot of 'Age' after preprocessing
-plt.figure(figsize=(6, 4))
-sns.boxplot(y=data['Age'])
-plt.title('Boxplot of Age (After Outlier Removal & Normalization)')
-plt.show()
-
-# Boxplot of 'Age' grouped by 'Survived'
-plt.figure(figsize=(6, 4))
-sns.boxplot(x='Survived', y='Age', data=data)
-plt.title('Survival by Age')
-plt.xlabel('Survived (0 = No, 1 = Yes)')
-plt.ylabel('Normalized Age')
-plt.show()
+# Run the script
+python titanic_cleaning.py
