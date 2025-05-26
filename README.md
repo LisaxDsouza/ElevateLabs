@@ -31,14 +31,14 @@ This project is a mini-task focused on data cleaning and visualizing the [Titani
 
 ##Libraries Used
 
-- `pandas`
-- `matplotlib`
-- `seaborn`
+- pandas
+- matplotlib
+- seaborn
 
 ##Sample Visualizations
 
-- Boxplot of `Age` before and after removing outliers
-- Boxplot comparing `Age` across survival classes
+- Boxplot of Age before and after removing outliers
+- Boxplot comparing Age across survival classes
 
 ## How to Run
 
